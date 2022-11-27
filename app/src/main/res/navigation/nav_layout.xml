@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_layout"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.toren.foodbookapp.ui.view.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_addFoodFragment2"
+            app:destination="@id/addFoodFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_accountFragment2"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFoodFragment"
+            app:destination="@id/searchFoodFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.toren.foodbookapp.ui.view.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment2"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.toren.foodbookapp.ui.view.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/register_fragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFoodFragment"
+        android:name="com.toren.foodbookapp.ui.view.AddFoodFragment"
+        android:label="add_food_fragment"
+        tools:layout="@layout/add_food_fragment" >
+        <action
+            android:id="@+id/action_addFoodFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.toren.foodbookapp.ui.view.AccountFragment"
+        android:label="account_fragment"
+        tools:layout="@layout/account_fragment" >
+        <action
+            android:id="@+id/action_accountFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.toren.foodbookapp.ui.view.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/splash_fragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.toren.foodbookapp.ui.view.FoodFragment"
+        android:label="food_fragment"
+        tools:layout="@layout/food_fragment" >
+        <argument
+            android:name="gelenYemek"
+            app:argType="com.toren.foodbookapp.model.Yemek" />
+        <action
+            android:id="@+id/action_foodFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFoodFragment"
+        android:name="com.toren.foodbookapp.ui.view.SearchFoodFragment"
+        android:label="search_food_fragment"
+        tools:layout="@layout/search_food_fragment" >
+        <action
+            android:id="@+id/action_searchFoodFragment_to_foodsFragment"
+            app:destination="@id/foodsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodsFragment"
+        android:name="com.toren.foodbookapp.ui.view.FoodsFragment"
+        android:label="foods_fragment"
+        tools:layout="@layout/foods_fragment" >
+        <action
+            android:id="@+id/action_foodsFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+        <argument
+            android:name="yemekler"
+            app:argType="com.toren.foodbookapp.model.Yemek[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.toren.foodbookapp.ui.view.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/search_fragment" >
+        <argument
+            android:name="search"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_searchFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+    </fragment>
+</navigation>
