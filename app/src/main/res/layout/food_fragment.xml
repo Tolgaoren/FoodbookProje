@@ -133,7 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
+            app:layout_constraintEnd_toStartOf="@+id/commentPush"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView8" />
 
@@ -148,6 +148,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/food_comment" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/commentPush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/ic_send"
+            android:layout_marginEnd="10dp"
+            android:background="@color/myBlack"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/food_comment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/food_comment" />
+
         <ToggleButton
             android:id="@+id/likeButton"
             android:layout_width="30dp"
@@ -160,18 +173,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/food_name" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@drawable/ic_send"
-            android:layout_marginEnd="10dp"
-            android:background="@color/myBlack"
-            android:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/food_comment"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/food_comment" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
