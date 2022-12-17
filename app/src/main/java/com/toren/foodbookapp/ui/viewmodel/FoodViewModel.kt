@@ -10,6 +10,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.toren.foodbookapp.model.Users
 import com.toren.foodbookapp.model.Yemek
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,6 +23,21 @@ class FoodViewModel : ViewModel() {
     private val imageRef = Firebase.storage.reference
     val image = MutableLiveData<Bitmap>()
     var recipe = MutableLiveData<Yemek>()
+    var name = MutableLiveData<Users>()
+
+    fun thisUser() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val user = auth.currentUser!!.uid
+            db.collection("users")
+                .document(user)
+                .get()
+                .addOnSuccessListener {
+                    it?.let {
+                        name.value = it.toObject(Users::class.java)
+                    }
+                }
+        }
+    }
 
     fun getBitmap(imgUrl: String) {
         val localFile = File.createTempFile("tempImage", "jpg")
@@ -50,6 +66,14 @@ class FoodViewModel : ViewModel() {
             db.collection("foods")
                 .document(id)
                 .update("likes", FieldValue.arrayUnion(currentUser))
+        }
+    }
+
+    fun comment(comment : String, id : String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            db.collection("foods")
+                .document(id)
+                .update("comments", FieldValue.arrayUnion(comment))
         }
     }
 
