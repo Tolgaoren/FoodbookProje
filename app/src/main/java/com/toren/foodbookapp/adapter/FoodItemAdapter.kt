@@ -1,5 +1,6 @@
 package com.toren.foodbookapp.adapter
 
+import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
@@ -56,14 +57,27 @@ class FoodItemAdapter(
         return foodList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newFoodList: ArrayList<Yemek>) {
         foodList.clear()
         foodList.addAll(newFoodList)
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newFoodList: List<Yemek>) {
         foodList.clear()
+        foodList.addAll(newFoodList)
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateLikes(newFoodList: List<Yemek>) {
+        foodList.addAll(newFoodList)
+        notifyDataSetChanged()
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateLikes(newFoodList: ArrayList<Yemek>) {
         foodList.addAll(newFoodList)
         notifyDataSetChanged()
     }

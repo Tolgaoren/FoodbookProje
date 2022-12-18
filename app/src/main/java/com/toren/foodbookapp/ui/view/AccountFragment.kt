@@ -1,5 +1,6 @@
 package com.toren.foodbookapp.ui.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import com.toren.foodbookapp.R
 import com.toren.foodbookapp.adapter.FoodItemAdapter
 import com.toren.foodbookapp.ui.viewmodel.AccountViewModel
 import com.toren.foodbookapp.databinding.AccountFragmentBinding
+import com.toren.foodbookapp.model.Users
 import com.toren.foodbookapp.model.Yemek
 
 class AccountFragment : Fragment(), FoodItemAdapter.OnItemClickListener {
@@ -19,6 +21,8 @@ class AccountFragment : Fragment(), FoodItemAdapter.OnItemClickListener {
     private val binding get() = _binding!!
     private var foodAdapter = FoodItemAdapter(arrayListOf(), this)
     private var foodList = ArrayList<Yemek>(arrayListOf())
+    private var likeList = ArrayList<Yemek>(arrayListOf())
+    private lateinit var thisUser: Users
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +39,8 @@ class AccountFragment : Fragment(), FoodItemAdapter.OnItemClickListener {
         viewModel.getFoodData()
         loadFoodData()
 
+
+
         binding.apply {
             toolbarm.toolbar.inflateMenu(R.menu.account_settings)
             toolbarm.toolbar.setOnMenuItemClickListener {
@@ -43,6 +49,9 @@ class AccountFragment : Fragment(), FoodItemAdapter.OnItemClickListener {
                         viewModel.signOut()
                         actionToLogin()
                     }
+                    R.id.likesItem -> {
+                        actionToLikes()
+                    }
                 }
                 true
             }
@@ -50,6 +59,8 @@ class AccountFragment : Fragment(), FoodItemAdapter.OnItemClickListener {
             recylerViewFoods.layoutManager = GridLayoutManager(view.context, 2)
             recylerViewFoods.adapter = foodAdapter
             recylerViewFoods.setHasFixedSize(true)
+
+            myRecipes.setOnClickListener { loadFoodData() }
         }
     }
 
@@ -59,18 +70,25 @@ class AccountFragment : Fragment(), FoodItemAdapter.OnItemClickListener {
         findNavController().navigate(action)
     }
 
+
     private fun loadFoodData() {
         viewModel.foodList.observe(viewLifecycleOwner, {
             it?.let {
                 foodAdapter.updateList(it as ArrayList<Yemek>)
                 foodList.clear()
                 foodList.addAll(it)
+
             }
         })
     }
 
     private fun actionToLogin() {
         val action = AccountFragmentDirections.actionAccountFragmentToLoginFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun actionToLikes() {
+        val action = AccountFragmentDirections.actionAccountFragmentToLikedFragment()
         findNavController().navigate(action)
     }
 

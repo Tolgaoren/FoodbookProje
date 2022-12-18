@@ -69,10 +69,15 @@
             app:destination="@id/homeFragment" />
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_accountFragment_to_foodFragment"
             app:destination="@id/foodFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_likedFragment"
+            app:destination="@id/likedFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -135,4 +140,9 @@
             android:id="@+id/action_searchFragment_to_foodFragment"
             app:destination="@id/foodFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/likedFragment"
+        android:name="com.toren.foodbookapp.ui.view.LikedFragment"
+        android:label="liked_fragment"
+        tools:layout="@layout/liked_fragment" />
 </navigation>

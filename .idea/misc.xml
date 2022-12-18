@@ -3,11 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/account_fragment.xml" value="0.31476449275362317" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/account_fragment.xml" value="0.33" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/add_food_fragment.xml" value="0.17831813576494426" />
         <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/food_comments.xml" value="0.17831813576494426" />
         <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/food_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/food_ingredients.xml" value="0.17831813576494426" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/foods_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/home_fragment.xml" value="0.33" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/home_view_pager_fragment.xml" value="0.20697463768115942" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/liked_fragment.xml" value="0.20697463768115942" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/list_item.xml" value="0.20697463768115942" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/login_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/register_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/layout/search_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/menu/account_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/menu/likes_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/foodbook_old/FoodbookApp-master/app/src/main/res/menu/toolbar_search_item.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

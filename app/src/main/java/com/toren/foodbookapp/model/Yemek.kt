@@ -13,6 +13,8 @@ data class Yemek(
     val kategori: String = "",
     val imgUrl: String = "",
     val user: String = "",
+    val username: String = "",
     val likes: ArrayList<String> = arrayListOf(),
-    val comments: ArrayList<String> = arrayListOf()
+    val comments: ArrayList<String> = arrayListOf(),
+    val id: String = ""
 ) : Parcelable

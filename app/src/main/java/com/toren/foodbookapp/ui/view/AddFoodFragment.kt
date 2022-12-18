@@ -105,7 +105,9 @@ class AddFoodFragment : Fragment(), MaterialItemAdapter.OnItemClickListener {
                         aciklama = textInputLayout5.editText!!.text.toString(),
                         kategori = inputFoodCategory.editText!!.text.toString(),
                         imgUrl = inputFoodName.editText!!.text.toString() + "?user=" + auth.uid.toString(),
-                        user = auth.uid.toString()
+                        user = auth.uid.toString(),
+                        username = auth.currentUser!!.displayName.toString(),
+                        id = name.lowercase() + "?user=" + auth.uid.toString()
                     )
                     viewModel.saveNewFood(yemek, imageUrl)
                     actionToHome()

@@ -56,7 +56,7 @@ class FoodFragment : Fragment() {
                 if (foodComment.text.isNotBlank() && foodComment.text.isNotEmpty()) {
 
                     val id = args.gelenYemek.yemekIsmi + "?user=" + args.gelenYemek.user
-                    val comment = name?.name + " "+ name?.surname + ": " + foodComment.text.toString()
+                    val comment = name.nickname + ": " + foodComment.text.toString()
 
                     viewModel.comment(comment, id)
 
@@ -98,7 +98,7 @@ class FoodFragment : Fragment() {
         binding.apply {
             foodName.text = recipe.yemekIsmi
             println(recipe)
-            foodUser.text = recipe.user
+            foodUser.text = recipe.username
             foodAciklama.text = recipe.aciklama
             foodHazirlanis.text = recipe.hazirlanis
             viewModel.getBitmap(recipe.imgUrl)

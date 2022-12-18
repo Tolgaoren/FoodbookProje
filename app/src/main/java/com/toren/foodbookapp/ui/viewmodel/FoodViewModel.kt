@@ -13,6 +13,7 @@ import com.google.firebase.storage.ktx.storage
 import com.toren.foodbookapp.model.Users
 import com.toren.foodbookapp.model.Yemek
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -66,6 +67,10 @@ class FoodViewModel : ViewModel() {
             db.collection("foods")
                 .document(id)
                 .update("likes", FieldValue.arrayUnion(currentUser))
+
+            db.collection("users")
+                .document(currentUser)
+                .update("likes",FieldValue.arrayUnion(id))
         }
     }
 

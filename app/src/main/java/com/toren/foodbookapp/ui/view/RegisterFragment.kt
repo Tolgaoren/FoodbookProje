@@ -35,9 +35,8 @@ class RegisterFragment : Fragment() {
             buttonRegister.setOnClickListener {
                 if (userControl()) {
                     val user = Users(
-                        name = binding.inputName.editText!!.text.toString(),
-                        surname = binding.inputSurname.editText!!.text.toString(),
-                        email = binding.inputMail.editText!!.text.toString(),
+                        nickname = binding.inputName.editText!!.text.toString(),
+                        email = binding.inputMail.editText!!.text.toString()
                     )
                     viewModel.saveNewUser(user, inputPassword.editText!!.text.toString())
                     saveNewUser()
@@ -48,42 +47,37 @@ class RegisterFragment : Fragment() {
     }
 
     private fun saveNewUser() {
-        viewModel.control.observe(viewLifecycleOwner, {
+        viewModel.control.observe(viewLifecycleOwner) {
             it?.let {
                 if (it) {
                     actionToHome()
                 }
             }
-        })
+        }
     }
 
     private fun userControl(): Boolean {
         var control = true
 
         binding.apply {
-            if (inputName.editText!!.text.toString()
-                    .isEmpty() || inputName.editText!!.text.length < 3
+            if (inputName.editText!!.text.toString().isEmpty() ||
+                inputName.editText!!.text.length < 3 ||
+                inputName.editText!!.text.toString().isBlank()
             ) {
-                inputName.error = "Geçerli bir isim giriniz."
+                inputName.error = "Geçerli bir kullanıcı adı giriniz."
                 control = false
             } else {
                 inputName.error = null
             }
-            if (inputSurname.editText!!.text.toString()
-                    .isEmpty() || inputSurname.editText!!.text.length < 3
-            ) {
-                inputSurname.error = "Geçerli bir isim giriniz."
-                control = false
-            } else {
-                inputSurname.error = null
-            }
-            if (inputMail.editText!!.text.isEmpty()) {
+            if (inputMail.editText!!.text.isEmpty() ||
+                inputName.editText!!.text.toString().isBlank()) {
                 inputMail.error = "Geçerli bir email adresi giriniz."
                 control = false
             } else {
                 inputMail.error = null
             }
-            if (inputPassword.editText!!.text.isEmpty() || inputPassword.editText!!.text.length < 6) {
+            if (inputPassword.editText!!.text.isEmpty() || inputPassword.editText!!.text.length < 6 ||
+                inputName.editText!!.text.toString().isBlank()) {
                 inputPassword.error = "Minimum 6 karakterli bir parola belirleyiniz."
                 control = false
             } else {

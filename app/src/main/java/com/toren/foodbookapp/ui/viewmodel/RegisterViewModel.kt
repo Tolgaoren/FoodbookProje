@@ -1,10 +1,12 @@
 package com.toren.foodbookapp.ui.viewmodel
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.toren.foodbookapp.model.Users
@@ -22,7 +24,20 @@ class RegisterViewModel : ViewModel() {
             auth.createUserWithEmailAndPassword(user.email, password)
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
-                        user.uuid = auth.uid.toString()
+
+                        val currentUser = auth.currentUser
+                        user.uuid = currentUser!!.uid
+
+                        val profileUpdates = userProfileChangeRequest {
+                            displayName = user.nickname
+                        }
+                        currentUser!!.updateProfile(profileUpdates)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Log.d(TAG, "User profile updated.")
+                                }
+                            }
+
                         db.collection("users").document(user.uuid).set(user)
                         Log.d("TAG", "createUserWithEmail:success")
                         control.value = true

@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
+import com.toren.foodbookapp.model.Users
 import com.toren.foodbookapp.model.Yemek
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,10 +31,29 @@ class AccountViewModel : ViewModel() {
         }
     }
 
-    fun signOut() {
-        viewModelScope.launch(Dispatchers.IO) {
-            auth.signOut()
+        fun signOut() {
+            viewModelScope.launch(Dispatchers.IO) {
+                auth.signOut()
+            }
         }
+
     }
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
